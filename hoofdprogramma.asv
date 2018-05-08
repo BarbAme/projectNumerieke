@@ -10,4 +10,5 @@
 %Opdracht 2.3
 [c] = spline_coeff(x,f);
 
-
+%Opdracht 2.5
+[y] = evalueer_lagrange(x,f,z
