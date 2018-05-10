@@ -11,6 +11,7 @@ function [result] = evalBspline_klad(index,k,t,x)
         first = ((x-t(i))/(t(i+k)-t(i)).*evalBspline_klad(index,k-1,t,x));
         
         %tweede term
+
         second = ((t(i+k+1)-x)/(t(i+k+1)-t(i+1))).*evalBspline_klad(index+1,k-1,t,x);
         % N i,k(x)
         result = first+second;

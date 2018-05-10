@@ -11,6 +11,7 @@ i = index + 1;
         result = first - second;
     else %k = 0
         %eerste term
+
         first = (k)/(t(i+k)-t(i)).*evalBspline(index,k-1,t,x);
         
         %tweede term
