@@ -1,7 +1,7 @@
 function RungeVeelterm()
 Emax = zeros(26,1); %lijst met maximale interpolatiefouten
 
-for n =5:31        
+for n =5:30        
     %Runge functie
     r = @(x) 1./(1+ 25*x.^2);
 
@@ -22,7 +22,7 @@ for n =5:31
 
  end
 %grafiek plotten
-xx = linspace(5,31,27);
+xx = linspace(5,30,26);
 yy = Emax;
 plot(xx,yy);
 end

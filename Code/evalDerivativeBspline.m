@@ -7,7 +7,7 @@ i = index ;
         if (k>=1)
 
             %eerste term
-            first = (k)/(t(i+k)-t(i)).*evalDerivativeBspline(index,k-1,t,x,m-1);
+            first = (k)/(t(i+k)-t(i))*evalDerivativeBspline(index,k-1,t,x,m-1);
 
             %tweede term
             second = (k)/(t(i+k+1)-t(i+1))*evalDerivativeBspline(index+1,k-1,t,x,m-1);

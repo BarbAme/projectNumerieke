@@ -8,7 +8,7 @@ function [result] = evalBspline(index,k,t,x)
         end
     else   
         %eerste term
-        first = ((x-t(i))/(t(i+k)-t(i))*evalBspline(index,k-1,t,x));
+        first = ((x-t(i))/(t(i+k)-t(i)).*evalBspline(index,k-1,t,x));
         
         %tweede term
 
