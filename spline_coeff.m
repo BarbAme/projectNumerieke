@@ -5,9 +5,9 @@ function [c] = spline_coeff(x,f)
    B = zeros(m,1);
 
    t = set_t(x);
+   
    %MATRIX A
    %matrix A, rij 1, kolom 1,2,3
-   
    for j = 1:3
        
        index= j;

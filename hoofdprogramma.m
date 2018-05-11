@@ -16,5 +16,9 @@
 
 %%
 %Opdracht 2.4
-[s] = deBoor( t, c, x )
+RungeSpline();
+
+%%
+%Opdracht 2.5
+RungeVelterm();
 

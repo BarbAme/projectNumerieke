@@ -1,6 +1,8 @@
 function [y] = evalueer_lagrange(x,f,z)
+%x vector met interpolatiepunten 
+%f vector met functiewaarden
+%z vector met waarden waarin de veelterm geevalueerd moet worden
 %ALGORITME 4.1 p 101 in boek
-%   Interpolerende veelterm volgens Lagrange
 
 n = length(x);
 n2 = length(z);
