@@ -18,12 +18,12 @@ Emax = zeros(26,1); %lijst met maximale interpolatiefouten
         
         %deBoor 
         t = set_t(x);
-        p = linspace(-1,1,1000);
-        s = deBoor(t,c,p);
-        fp = r(p);
+        z = linspace(-1,1,1000);
+        s = deBoor(t,c,z);
+        rz = r(z);
         
         %max interpolatiefout
-        Emax(n-4) = max(abs(s-fp));
+        Emax(n-4) = max(abs(s-rz));
 
     end
 %grafiek plotten
