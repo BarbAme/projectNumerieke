@@ -1,6 +1,6 @@
 function [x, L_sub, U_hoofd, U_super, y] = gauss_tridiag(A_sub, A_hoofd, A_super, b)
 
-%n = dimensie van de viekante matrix A = dimensie b
+%n = dimensie van de vierkante matrix A = dimensie b
 n = length(A_hoofd);
 
 %eerste element U_hoofd
@@ -8,9 +8,9 @@ U_hoofd(1) = A_hoofd(1);
 %eerste element y
 y(1) = b(1);
 
-%voorwaartse substitutie om L_sub, U_hoofd en y berekenen (en U_super overschrijven)
+%voorwaartse substitutie om L_sub, U_hoofd en y berekenen (en U_super te overschrijven)
 for k = 2:n
-    %sub diagonaal van L
+    %subdiagonaal van L
     L_sub(k-1) = A_sub(k-1)/U_hoofd(k-1);
     
     %hoofddiagonaal van U
