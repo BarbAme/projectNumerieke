@@ -28,5 +28,5 @@ RungeSpline();
 
 %%
 %Opdracht 2.5
-RungeVelterm();
+RungeVeelterm();
 
