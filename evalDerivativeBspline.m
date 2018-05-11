@@ -1,5 +1,5 @@
 function [result] = evalDerivativeBspline(index,k,t,x,m);
-i = index + 1;
+i = index ;
 
     if (m == 0)
         result = evalBspline(index,k,t,x);

@@ -1,7 +1,8 @@
 function [result] = evalBspline(index,k,t,x)
-    i = index +1;
-    k
-    fprintf('evalBspline')
+%     i = index +1;
+    i = index;
+
+
     if (k == 0)
         if ((t(i) <= x )&&(x<t(i+1)))
             result = 1;
@@ -18,4 +19,5 @@ function [result] = evalBspline(index,k,t,x)
         % N i,k(x)
         result = first+second;
     end
+   
 end

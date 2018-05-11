@@ -1,7 +1,5 @@
 function [result] = evalBspline(index,k,t,x)
-    i = index +1;
-    
-    
+    i = index;
     if (k == 0)
         if ((t(i) <= x )&&(x<t(i+1)))
             result = 1;
