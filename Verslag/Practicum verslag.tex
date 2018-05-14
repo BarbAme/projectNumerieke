@@ -80,7 +80,7 @@ Als we de elementen van dit matrixproduct elementgewijs uitschrijven krijgen we:
 We kunnen de elementen $u_{i,j}$ en $ l_{i,j}$ van $U$ en $L_{E}$ als volgt berekenen:
 \\Voor elke $k = 1,2,...,n:$
 \\{}
-\\ \textbullet { } $u_{k,m} = a_{k,m} - \sum_{j=1}^{k-1}l_{k,j} \cdot u_{j,m} $ met $m = k,k+1,...,n$ geeft de $k^{de}$ kolom van $U$
+\\ \textbullet { } $u_{k,m} = a_{k,m} - \sum_{j=1}^{k-1}l_{k,j} \cdot u_{j,m} $ met $m = k,k+1,...,n$ geeft de $k^{de}$ rij van $U$
 \\{}
 \\ \textbullet { } $l_{i,k} = \frac{a_{i,k}-  \sum_{j=1}^{k-1}l_{i,j} \cdot u_{j,k}}{u_{k,k}}$ met $i = k+1,k+2,...,n$ en $l_{i,i} = 1$ geeft de $k^{de}$ kolom van $L$
 %
@@ -100,27 +100,26 @@ Tridiagonale matrix A:
  0 & 0 &0 & \cdots & a_{n,n} 
  \end{bmatrix}\]
 \\{}
-\\Voor $u_{i,j}$:
-\\ Uit 1.1 weten we dat  $u_{i,j} = a_{i,j} - \sum_{k=1}^{i-1}l_{i,k} \cdot u_{k,j}$.
+\\ \textbullet{ } Uit de formules uit 1.1 kan je afleiden dat voor $U$:
+\\Wanneer een element $u_{i,j}$ rechts van de superdiagonaal ligt, ofwel $j > i+1 $, de som weg valt.
+\\Omdat $a_{i,j}$ in dat geval nul is, zal ook $u_{i,j}$ nul zijn.
+\\Aangezien uit de LU-decompositie volgt dat $U$ een bovendriehoeksmatrix is, is $U$ dus tridiagonaal.
 \\{}
-\\Omdat $U$ een bovendriehoeksmatrix is geldt voor $i>j$: $u_{i,j} = 0$
-\[
-\begin{bmatrix}
- 1 & 0 & 0& \cdots & 0 \\
-  l_{2,1} &1 &0& \cdots &0 \\
-0 &l_{3,2} &0& \cdots &0 \\
-    \vdots  &\vdots  & \vdots  & \ddots & \vdots  \\
-0 &0&0 & \cdots & 1 
-\end{bmatrix}
-\]
-\\Voor $l_{i,j}$:
-\\Uit 1.1 weten we dat $l_{i,k} = \frac{a_{i,k}-  \sum_{j=1}^{k-1}l_{i,j} \cdot u_{j,k}}{u_{k,k}}$
+\\$u_{1,1} = a_{1,1}$
+\\$u_{i,j} = a_{i,j}$ als $i+1=j$ (superdiagonaal)
+\\$u_{i,j} = a_{i,j} - l_{i,j-1} \cdot u_{i-1,j}$ als $i=j$ (hoofddiagonaal)
+\\$u_{i,j} = 0$ in alle andere gevallen
 \\{}
-\\Omdat U een bovendriehoeksmatrix is geldt dat als $i>j$, $u_{i,j} = 0$.
-\\Voor $i<j$ geldt: 
-\\
+\\ \textbullet { }Voor $L$ kan je afleiden dat:
+\\Wanneer een element $l_{i,j}$ links van de subdiagonaal ligt, ofwel $i > j+1$, de som weg valt.
+\\Omdat $a_{i,j}$ in dat geval nul is, zal ook $l_{i,j}$ nul zijn.
+\\Aangezien uit de LU-decompositie volgt dat $L$ een benedendriehoeksmatrix is, is $L$ dus tridiagonaal.
 \\{}
-\\Het matrixproduct  $A=L_{E}\cdot U$ bij een tridiagonale matrix:
+\\$l_{i,j} = 1$ als $i=j$
+\\$l_{i,j} = \frac{a_{i,j}}{u_{i-1,j}}$ als $i=j+1$
+\\ $l_{i,j} = 0$ in alle andere gevallen
+\\{}
+\\ \textbullet { }Het matrixproduct  $A=L_{E}\cdot U$ bij een tridiagonale matrix:
 \[
  \begin{bmatrix}
   a_{1,1} & a_{1,2}& 0 & \cdots &0 \\
@@ -146,23 +145,6 @@ Tridiagonale matrix A:
  0 & 0 &0& \cdots & u_{n,n}
 \end{bmatrix}
 \]
-
-
-
-Voor de matrix $U$:
-\\Uit 1.1 weten we dat als $u_{i,j}$ onder de hoofddiagonaal valt, $u_{i,j} = 0$.
-\\In het andere geval (element ligt op de hoofddiagonaal of erboven) is $u_{i,j} = a_{i,j}$.
-\\Omdat $A$ een tridiagonale matrix is zijn alle elementen van $A$ boven de superdiagonaal $0$.
-\\Alle elementen van $U$ boven de superdiagonaal zijn dus ook 0.
-\\$U$ is dus een tridiagonale matrix.
-\\{}
-\\Voor de matrix $L$:
-\\Uit 1.1 weten we dat als $l_{i,j}$ boven de hoofddiagonaal valt, $l_{i,j} = 0$.
-\\Als $l_{i,j}$ op de hoofddiagonaal ligt, is $l_{i,j} = 1$.
-\\Als $l_{i,j}$ onder de hoofddiagonaal ligt is $l_{i,j} = a_{i,j}$.
-\\Omdat $A$ een tridiagonale matrix is zijn alle elementen van $A$ onder de subdiagonaal $0$.
-\\Alle elementen van $L$ onder de subdiagonaal zijn dus ook 0.
-\\$L$ is dus een tridiagonale matrix.
 %
 %
 %
@@ -191,7 +173,7 @@ Er wordt reeds in het begin van het algoritme een nul-element gevormd op de hoof
 %
 %
 \section*{Opdracht 1.3.3}
-TODO
+
 %
 %
 %
@@ -223,5 +205,8 @@ Plot:
 %
 \section*{Opdracht 2.6}
 We kunnen meteen inzien dat methode uit opdracht 2.4 een betere benadering oplevert dan de  methode uit opdracht 2.5 zolang het aantal knooppunten groot genoeg is. Het belangrijkste verschil tussen de twee methodes is het gebrek aan convergentie bij de methode uit opdracht 2.5. Dat is een gevolg van het verschijnsel van Runge. Interpolaties met equidistante knooppunten van bepaalde functies, waaronder de Runge-functie, convergeren niet. De benadering begint sterk te oscilleren aan de randen van het interpolatieinterval, met een grote maximale interpolatie fout als gevolg.
+\section*{Verdeling werk}
+Barbara Ameloot: Opdracht 1.3, 2.1, 2.2, 2.3, 2.4, 2.5 + typen verslag
+\\Tobias Baert: Opdracht 1.1, 1.2, 1.3.1, 1.3.2, 1.3.3, 2.6
 \end{document}
 
