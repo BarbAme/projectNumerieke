@@ -9,3 +9,27 @@ Er wordt reeds in het begin van het algoritme een nul-element gevormd op de hoof
 2.6:
 
 We kunnen meteen inzien dat methode uit opdracht 2.4 een betere benadering oplevert dan de  methode uit opdracht 2.5 zolang het aantal knooppunten groot genoeg is. Het belangrijkste verschil tussen de twee methodes is het gebrek aan convergentie bij de methode uit opdracht 2.5. Dat is een gevolg van het verschijnsel van Runge. interpolaties met equidistante knooppunten van bepaalde functies, waaronder de Runge-functie, niet convergeren. De benadering begint namelijk sterk te oscilleren aan de randen van het interpolatieinterval, met een grote maximale interpolatie fout als gevolg.
+
+Bewijzen 1.1:
+
+Om een element l_{i,j} af te leiden gebruikten we in 1.1 steeds een vergelijking van de vorm:
+
+a_{ij} = \sum_k^{i-1} {l_{ik}\cdot u_{kj}} met i < j 
+
+Daaruit leiden we af dat:
+- l_{i,1}, het eerste element van elke rij van L, gelijk is aan nul als en slechts als a_{i,j} gelijk is aan nul.
+- l_{i,j} gelijk is aan nul asa a_{i,j} == 0 EN alle elementen l_{i,k} met k = 1, ..., i - 1 (dit zijn de elementen links in dezelfde rij) gelijk zijn aan nul.
+
+Als gevolg daarvan wordt elke rij van links naar rechts met nullen gevuld tot men aankomt op de subdiagonaal. Omdat L verder een benedendriehoeksmatrix is, is L dus tridiagonaal.
+
+--------------
+
+Om een element u_{i,j} af te leiden gebruikten we in 1.1 steeds een vergelijking van de vorm:
+
+a_{ij} = \sum_k^{i-1} {l_{ik}\cdot u_{kj}} + u_{ij} met i >= j 
+
+Daaruit leiden we af dat:
+- u_{1,j}, het eerste element van elke kolom van U, gelijk is aan nul als en slechts als a_{i,j} gelijk is aan nul.
+- u_{i,j} gelijk is aan nul asa a_{i,j} == 0 EN alle elementen u_{k,j} met k = 1, ..., i - 1 (dit zijn de elementen erboven in dezelfde kolom) gelijk zijn aan nul.
+
+Als gevolg daarvan wordt elke kolom van boven naar onderen met nullen gevuld tot men aankomt op de superdiagonaal. Omdat U verder een bovendriehoeksmatrix is, is U dus tridiagonaal.
