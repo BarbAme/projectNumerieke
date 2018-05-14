@@ -22,7 +22,12 @@ for n =5:30
 
  end
 %grafiek plotten
+
 xx = linspace(5,30,26);
 yy = Emax;
-plot(xx,yy);
+plot2_5 = plot(xx,yy);
+title('Plot opdracht 2.5');
+xlabel('n') % x-axis label
+ylabel('E\_max') % y-axis label
+saveas(plot2_5,'plot2_5','png')
 end

@@ -1,12 +1,14 @@
 \documentclass[a4paper]{article}
 \usepackage[dutch]{babel}
 \usepackage{mathtools}
+\usepackage{graphicx}
+\graphicspath{ {Afbeeldingen/}}
 \title{Practicum Numerieke Wiskunde}
 \author{Barbara Ameloot, Tobias Baert}
 \date{Mei 2018}
 \begin{document}
 \maketitle
-   \section{Opdracht 1.1}
+   \section*{Opdracht 1.1}
 Het matrixproduct  $A=L_{E}\cdot U$ :
 \\
 \[
@@ -81,6 +83,38 @@ We kunnen de elementen $u_{i,j}$ en $ l_{i,j}$ van $U$ en $L_{E}$ als volgt bere
 \\ \>$l_{i,j} =  a_{i,j}$
 \end{tabbing}
 \end{verse}
-\section{Opdracht 1.2}
+\section*{Opdracht 1.2}
+Voor de matrix $U$:
+\\Uit 1.1 weten we dat als $u_{i,j}$ onder de hoofddiagonaal valt, $u_{i,j} = 0$.
+\\In het andere geval (element ligt op de hoofddiagonaal of erboven) is $u_{i,j} = a_{i,j}$.
+\\Omdat $A$ een tridiagonale matrix is zijn alle elementen van $A$ boven de superdiagonaal $0$.
+\\Alle elementen van $U$ boven de superdiagonaal zijn dus ook 0.
+\\$U$ is dus een tridiagonale matrix.
+\\{}
+\\Voor de matrix $L$:
+\\Uit 1.1 weten we dat als $l_{i,j}$ boven de hoofddiagonaal valt, $l_{i,j} = 0$.
+\\Als $l_{i,j}$ op de hoofddiagonaal ligt, is $l_{i,j} = 1$.
+\\Als $l_{i,j}$ onder de hoofddiagonaal ligt is $l_{i,j} = a_{i,j}$.
+\\Omdat $A$ een tridiagonale matrix is zijn alle elementen van $A$ onder de subdiagonaal $0$.
+\\Alle elementen van $L$ onder de subdiagonaal zijn dus ook 0.
+\\$L$ is dus een tridiagonale matrix.
+\section*{Opdracht 1.3.1}
+Aantal elementaire bewerkingen:
+\\$(n-1) \cdot 6V + (n-1) \cdot 3O$
+\\Met $V$: vermenigvuldiging/deling en $O$: optelling/aftrekking
+\section*{Opdracht 1.3.2}
+Er wordt reeds in het begin van het algoritme een nul-element gevormd op de hoofddiagonaal van U. In een volgende stap wordt door dit element gedeeld.
+\section*{Opdracht 1.3.3}
+TODO
+\section*{Opdracht 2.4}
+Plot:
+\\{}
+\includegraphics[scale = 0.8]{plot2_4}
+\section*{Opdracht 2.5}
+Plot:
+\\{}
+\includegraphics[scale = 0.8]{plot2_5}
+\section*{Opdracht 2.6}
+We kunnen meteen inzien dat methode uit opdracht 2.4 een betere benadering oplevert dan de  methode uit opdracht 2.5 zolang het aantal knooppunten groot genoeg is. Het belangrijkste verschil tussen de twee methodes is het gebrek aan convergentie bij de methode uit opdracht 2.5. Dat is een gevolg van het verschijnsel van Runge. Interpolaties met equidistante knooppunten van bepaalde functies, waaronder de Runge-functie, convergeren niet. De benadering begint sterk te oscilleren aan de randen van het interpolatieinterval, met een grote maximale interpolatie fout als gevolg.
 \end{document}
 

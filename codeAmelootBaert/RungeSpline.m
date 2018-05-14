@@ -27,8 +27,14 @@ Emax = zeros(26,1); %lijst met maximale interpolatiefouten
 
     end
 %grafiek plotten
+
+
 xx = linspace(5,30,26);
 yy = Emax;
-plot(xx,yy);
+plot2_4 = plot(xx,yy);
+title('Plot opdracht 2.4');
+xlabel('n') % x-axis label
+ylabel('E\_max') % y-axis label
+saveas(plot2_4,'plot2_4','png')
 
 end
