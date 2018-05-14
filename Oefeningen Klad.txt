@@ -1,0 +1,11 @@
+1.3.1:
+(n-1) * 6 V + (n-1) * 3 O
+
+1.3.2:
+Er wordt reeds in het begin van het algoritme een nul-element gevormd op de hoofddiagonaal van U. In een volgende stap wordt door dit element gedeeld.
+
+1.3.3:
+
+2.6:
+
+We kunnen meteen inzien dat methode uit opdracht 2.4 een betere benadering oplevert dan de  methode uit opdracht 2.5 zolang het aantal knooppunten groot genoeg is. Het belangrijkste verschil tussen de twee methodes is het gebrek aan convergentie bij de methode uit opdracht 2.5. Dat is een gevolg van het verschijnsel van Runge. interpolaties met equidistante knooppunten van bepaalde functies, waaronder de Runge-functie, niet convergeren. De benadering begint namelijk sterk te oscilleren aan de randen van het interpolatieinterval, met een grote maximale interpolatie fout als gevolg.
