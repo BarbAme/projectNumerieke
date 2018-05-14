@@ -100,26 +100,39 @@ Tridiagonale matrix A:
  0 & 0 &0 & \cdots & a_{n,n} 
  \end{bmatrix}\]
 \\{}
-\\ \textbullet{ } Uit de formules uit 1.1 kan je afleiden dat voor $U$:
-\\Wanneer een element $u_{i,j}$ rechts van de superdiagonaal ligt, ofwel $j > i+1 $, de som weg valt.
-\\Omdat $a_{i,j}$ in dat geval nul is, zal ook $u_{i,j}$ nul zijn.
-\\Aangezien uit de LU-decompositie volgt dat $U$ een bovendriehoeksmatrix is, is $U$ dus tridiagonaal.
+\begin{tabbing}
+\\ \textbullet{ }Voor $U$:
+\\We nemen de eerste serie vergelijkingen uit 1.1:
 \\{}
-\\$u_{1,1} = a_{1,1}$
-\\$u_{i,j} = a_{i,j}$ als $i+1=j$ (superdiagonaal)
-\\$u_{i,j} = a_{i,j} - l_{i,j-1} \cdot u_{i-1,j}$ als $i=j$ (hoofddiagonaal)
-\\$u_{i,j} = 0$ in alle andere gevallen
+\\$a_{1,k} = 1 \cdot u_{1,k}$
 \\{}
-\\ \textbullet { }Voor $L$ kan je afleiden dat:
-\\Wanneer een element $l_{i,j}$ links van de subdiagonaal ligt, ofwel $i > j+1$, de som weg valt.
-\\Omdat $a_{i,j}$ in dat geval nul is, zal ook $l_{i,j}$ nul zijn.
-\\Aangezien uit de LU-decompositie volgt dat $L$ een benedendriehoeksmatrix is, is $L$ dus tridiagonaal.
+\\Omdat $a_{1,k} = 0$ voor $k > 2$ is dus ook $u_{1,k} = 0$ voor $k > 2$.
 \\{}
-\\$l_{i,j} = 1$ als $i=j$
-\\$l_{i,j} = \frac{a_{i,j}}{u_{i-1,j}}$ als $i=j+1$
-\\ $l_{i,j} = 0$ in alle andere gevallen
+\\Dit kunnen we invullen in de tweede serie vergelijkingen uit 1.1:
 \\{}
-\\ \textbullet { }Het matrixproduct  $A=L_{E}\cdot U$ bij een tridiagonale matrix:
+\\$a_{2,k} = l_{2,1} \cdot u_{1,k} + 1 \cdot u_{2,k}$ 
+\\{}
+\\Nu is $a_{2,k} = 0$ voor $k > 3$. Omdat we weten dat $u_{1,k} = 0$ voor $k > 2$ is dus ook $u_{1,k} = 0$ voor $k > 3$.
+\\{}
+\\Algemener kunnen dus we zeggen dat $u_{i,k} = 0$ als $k > i + 1$. Omdat we ook weten dat U een bovendriehoeksmatrix is, is de matrix U dus tridiagonaal.
+\\{}
+\\ \textbullet { }Voor $L$:
+\\We nemen nu de eerste vergelijking van elke serie uit 1.1:
+\\{}
+\\$a_{k,1} = l_{k,1} \cdot u_{1,1}$ met $k > 2$
+\\{}
+\\Omdat $a_{k,1} = 0$ voor $k > 2$ en dat $u_{1,1} \neq 0$, volgt dat $l_{k,1} = 0$ voor $k > 2$.
+\\{}
+\\Dit resultaat kunnen we invullen in de tweede vergelijking van elke serie in 1.1:
+\\{}
+\\$a_{k,2} = l_{k,1} \cdot u_{1,2} + l_{k,2} \cdot u_{2,2}$ met $k > 3$
+\\{}
+\\Wederom is $a_{k,2} = 0$ met $k > 3$. Omdat $l_{k,1} = 0$ voor $k > 2$ en $u_{2,2} \neq 0$ moet $l_{k,2} = 0$ voor $k > 3$.
+\\{}
+\\Algemener kunnen dus we zeggen dat $l_{k,j} = 0$ als $k > j + 1$. Omdat we ook weten dat L een benedendriehoeksmatrix is, is de matrix L dus tridiagonaal.
+\\{}
+\end{tabbing}
+ \textbullet { }Het matrixproduct  $A=L_{E}\cdot U$ bij een tridiagonale matrix:
 \[
  \begin{bmatrix}
   a_{1,1} & a_{1,2}& 0 & \cdots &0 \\
